@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var name = localStorage.getItem("name");
+            var lastVisit = localStorage.getItem("lastVisit");
+        
+            if (name === null) {
+                name = prompt("Добро пожаловать! Назовите, пожалуйста, ваше имя:");
+                localStorage.setItem("name", name);
+                var currentDate = new Date();
+                var formattedDate = currentDate.toLocaleString();
+                localStorage.setItem("lastVisit", formattedDate);
+            } else {
+                var currentDate = new Date();
+                var formattedDate = currentDate.toLocaleString();
+                alert("Добрый день, " + name + "! Давно не виделись. В последний раз вы были у нас " + lastVisit);
+                localStorage.setItem("lastVisit", formattedDate);
+            }
+        });
+        </script>
+</body>
+</html>
